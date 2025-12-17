@@ -30,6 +30,7 @@ public class HelloFrame extends JFrame implements ActionListener {
     add(pesanLabel);
   }
 
+  // Method for action performed
   public void actionPerformed(ActionEvent e) {
     numTimes++;
 
