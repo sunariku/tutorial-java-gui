@@ -27,7 +27,11 @@ public class HelloFrame extends JFrame {
     tampilButton.addActionListener(e -> {
       numTimes++;
 
+      System.out.println(namaTextField.getText());
+
       pesanLabel.setText("Counter Nilai " + numTimes);
+
+      JOptionPane.showMessageDialog(this, namaTextField.getText());
     });
 
     resetButton.addActionListener(new ActionListener() {
