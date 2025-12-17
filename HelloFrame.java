@@ -5,6 +5,7 @@ import javax.swing.*;
 public class HelloFrame extends JFrame implements ActionListener {
 
   private int numTimes = 0;
+  private JLabel pesanLabel;
 
   public HelloFrame() {
     super();
@@ -19,13 +20,20 @@ public class HelloFrame extends JFrame implements ActionListener {
     JTextField namaTextField = new JTextField(10);
     JButton tampilButton = new JButton("Tampilkan");
 
+    pesanLabel = new JLabel("Counter Nilai Pada Button Clicked");
+
     tampilButton.addActionListener(this);
 
     add(namaLabel);
     add(namaTextField);
     add(tampilButton);
+    add(pesanLabel);
   }
 
-  
+  public void actionPerformed(ActionEvent e) {
+    numTimes++;
+
+    pesanLabel.setText("Counter Nilai Pada Button Clicked " + numTimes);
+  }
 
 }
