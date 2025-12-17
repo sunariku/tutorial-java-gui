@@ -2,10 +2,11 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
-public class HelloFrame extends JFrame implements ActionListener {
+public class HelloFrame extends JFrame {
 
   private int numTimes = 0;
   private JLabel pesanLabel;
+  private JButton resetButton;
 
   public HelloFrame() {
     super();
@@ -20,21 +21,28 @@ public class HelloFrame extends JFrame implements ActionListener {
     JTextField namaTextField = new JTextField(10);
     JButton tampilButton = new JButton("Tampilkan");
 
-    pesanLabel = new JLabel("Counter Nilai Pada Button Clicked");
+    pesanLabel = new JLabel("Counter Nilai " + numTimes);
+    resetButton = new JButton("Reset Nilai");
 
-    tampilButton.addActionListener(this);
+    tampilButton.addActionListener(e -> {
+      numTimes++;
+
+      pesanLabel.setText("Counter Nilai " + numTimes);
+    });
+
+    resetButton.addActionListener(new ActionListener() {
+      public void actionPerformed(ActionEvent e) {
+        numTimes = 0;
+
+        pesanLabel.setText("Counter Nilai " + numTimes);
+      }
+    });
 
     add(namaLabel);
     add(namaTextField);
     add(tampilButton);
     add(pesanLabel);
-  }
-
-  // Method for action performed
-  public void actionPerformed(ActionEvent e) {
-    numTimes++;
-
-    pesanLabel.setText("Counter Nilai Pada Button Clicked " + numTimes);
+    add(resetButton);
   }
 
 }
